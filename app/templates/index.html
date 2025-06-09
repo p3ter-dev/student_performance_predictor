@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Performance Predictor</h1>
+  <form method="POST">
+    <label>Study Hours:</label><br>
+    <input type="number" step="any" name="study_hours" placeholder="e.g., 5"><br>
+
+    <label>Attendance (%):</label><br>
+    <input type="number" step="any" name="attendance" placeholder="e.g., absent/present"><br>
+
+    <label>Current GPA:</label><br>
+    <input type="number" step="any" name="gpa" placeholder="e.g., 4.0/3.0"><br>
+
+    <button type="submit">Predict</button>
+  </form>
+
+  {% if prediction is not none %}
+    <h3>Prediction: {{ prediction }}</h3>
+  {% endif %}
+</body>
+</html>
