@@ -1,10 +1,10 @@
 from flask import render_template, request
 from app import app
-import pickle
+import joblib
 import numpy as np
 
-model = pickle.load(open('app/model/model.pkl', 'rb'))
-scaler = pickle.load(open('app/model/scaler.pkl', 'rb'))
+model = joblib.load('app/model/model.pkl')
+scaler = joblib.load('app/model/scaler.pkl')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
