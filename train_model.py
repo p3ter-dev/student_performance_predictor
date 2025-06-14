@@ -7,21 +7,21 @@ import joblib
 
 data = {
     'study_hours': np.random.randint(0, 15, 100),
-    'attendance_rate': np.random.uniform(50, 100, 100),
+    'attendance': np.random.uniform(50, 100, 100),
     'current_gpa': np.random.uniform(2.0, 4.0, 100)
 }
 df = pd.DataFrame(data)
 
 df['gpa_raw'] = (
     0.3 * df['study_hours'] +
-    0.3 * (df['attendance_rate']) +
+    0.3 * (df['attendance']) +
     0.4 * (df['current_gpa'] * 25)
 )
 
 gpa_scaler = MinMaxScaler(feature_range=(1.0, 4.0))
 df['gpa'] = gpa_scaler.fit_transform(df[['gpa_raw']])
 
-X = df[['study_hours', 'attendance_rate', 'current_gpa']]
+X = df[['study_hours', 'attendance', 'current_gpa']]
 y = df['gpa']
 
 scaler = StandardScaler()
